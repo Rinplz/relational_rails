@@ -46,4 +46,16 @@ RSpec.describe "book pages", type: :feature do
       expect(page).to have_content(@book_2.title)
     end
   end
+
+  it 'has a link to a certain ids recipe index on the show page' do
+    visit "/books/#{@book_1.id}"
+
+    expect(page).to have_link('Recipes Included in This Book')
+    click_link('Recipes Included in This Book')
+
+    expect(page).to have_content(@recipe_1.name)
+    expect(page).to have_content(@recipe_2.name)
+    expect(page).to have_content("ingredients needed: #{@recipe_1.ingredient_count}| #{@recipe_1.ingredient_list}")
+    expect(page).to have_content("ingredients needed: #{@recipe_2.ingredient_count}| #{@recipe_2.ingredient_list}")
+  end
 end
