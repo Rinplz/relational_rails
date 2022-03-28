@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+book_1 = Book.create!(name: 'air fryer recipes', book_completed?: false, rating: 5, author: 'allrecipe')

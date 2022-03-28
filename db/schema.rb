@@ -15,24 +15,24 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Books", id: :integer, default: nil, force: :cascade do |t|
+  create_table "Book", id: :integer, default: nil, force: :cascade do |t|
     t.text "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.date "created_at"
+    t.date "updated_at"
     t.boolean "book_completed?"
     t.integer "rating"
     t.text "author"
   end
 
-  create_table "Recipes", id: :integer, default: nil, force: :cascade do |t|
+  create_table "Recipe", id: :integer, default: nil, force: :cascade do |t|
     t.text "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.date "created_at"
+    t.date "updated_at"
     t.boolean "has_been_made_once?"
     t.integer "ingredient_count"
     t.text "ingredients"
     t.integer "recipe_book_id"
   end
 
-  add_foreign_key "Recipes", "\"Books\"", column: "recipe_book_id", name: "Recipes_recipe_book_id_fkey"
+  add_foreign_key "Recipe", "\"Book\"", column: "recipe_book_id", name: "Recipes_recipe_book_id_fkey"
 end
