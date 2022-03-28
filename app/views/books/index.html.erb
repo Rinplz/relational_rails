@@ -1,0 +1,8 @@
+<a href="/books">Books Index</a>
+<a href="/recipes">Recipes Index</a>
+
+<h1>All Books</h1>
+
+<% @books.each do |book| %>
+  <h3><%= book.title %></h3>
+<% end %>

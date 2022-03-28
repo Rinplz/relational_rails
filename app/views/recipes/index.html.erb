@@ -1,0 +1,10 @@
+<a href="/books">Books Index</a>
+<a href="/recipes">Recipes Index</a>
+
+<h1> All Recipe</h1>
+
+<% @recipes.each do |recipe| %>
+  <h3><%= recipe.name%></h3>
+  <p>ingredients needed: <%= recipe.ingredient_count%>| <%= recipe.ingredient_list%><br>
+  </p>
+<% end %>
