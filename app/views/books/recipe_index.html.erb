@@ -1,0 +1,7 @@
+<h1><%= @books.title%></h1>
+
+<% @recipes.each do |recipe|%>
+  <h3><%= recipe.name%></h3>
+  <p>ingredients needed: <%= recipe.ingredient_count%>| <%= recipe.ingredient_list%><br>
+  </p>
+<%end%>
