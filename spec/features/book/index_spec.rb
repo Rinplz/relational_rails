@@ -8,8 +8,6 @@ RSpec.describe "book index page", type: :feature do
     visit "/books"
 
     expect(page).to have_content(book_1.title)
-    expect(page).to have_content("Rating: #{book_1.rating}/5")
     expect(page).to have_content(book_2.title)
-    expect(page).to have_content("Rating: #{book_2.rating}/5x`x`x``")
   end
 end
