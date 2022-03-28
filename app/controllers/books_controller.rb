@@ -6,6 +6,7 @@ class BooksController < ApplicationController
 
   def show
     @books = Book.find(params[:id])
+    @recipes = Recipe.where(book_id: params[:id])
   end
 
   def recipe_index

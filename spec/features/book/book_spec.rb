@@ -20,6 +20,7 @@ RSpec.describe "book pages", type: :feature do
     expect(page).to have_content(book_1.title)
     expect(page).to have_content("Rating: #{book_1.rating}/5")
     expect(page).to have_content("Series: #{book_1.author}")
+    expect(page).to have_content("Recipes included: 0")
   end
 
   it 'can show all recipes in a book' do
