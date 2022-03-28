@@ -6,6 +6,7 @@ RSpec.describe "book pages", type: :feature do
     @book_2 = Book.create(title: 'week night dinners', book_completed: false, rating: 4, author: 'taste of home')
     @recipe_1 = Recipe.create!(name: 'cajun salmon',ingredient_count: 3, ingredient_list: 'salmon, cajun seasoning, butter', book_id: Book.first.id)
     @recipe_2 = Recipe.create!(name: 'nikujaga',ingredient_count: 4, ingredient_list: 'beef, potatoes, carrots, green beans', book_id: Book.first.id)
+    @views = ["/books", "/books/#{@book_1.id}","/books/#{@book_1.id}/recipes"]
 
   end
   it 'can see all books' do
@@ -34,7 +35,15 @@ RSpec.describe "book pages", type: :feature do
     expect(page).to have_content("ingredients needed: #{@recipe_2.ingredient_count}| #{@recipe_2.ingredient_list}")
   end
 
-  it 'each page has a link to book index' do
+  it 'has a link to index on each page' do
+    @views.each do |view|
+      visit view
 
+      expect(page).to have_link('Books Index')
+      click_link('Books Index')
+
+      expect(page).to have_content(@book_1.title)
+      expect(page).to have_content(@book_2.title)
+    end
   end
 end
