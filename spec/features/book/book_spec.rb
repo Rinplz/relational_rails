@@ -44,6 +44,7 @@ RSpec.describe "book pages", type: :feature do
 
       expect(page).to have_content(@book_1.title)
       expect(page).to have_content(@book_2.title)
+      expect(@book_1.title).to appear_before(@book_2.title)
     end
   end
 
