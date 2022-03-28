@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "book index page", type: :feature do
+RSpec.describe "book pages", type: :feature do
   it 'can see all books' do
     book_1 = Book.create(title: 'air fryer recipes', book_completed: false, rating: 5, author: 'allrecipe')
     book_2 = Book.create(title: 'week night dinners', book_completed: false, rating: 4, author: 'taste of home')
